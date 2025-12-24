@@ -187,8 +187,9 @@
         }
     </style>
 </head>
-</html>
 
+
+<body>
 <header>
     <h1>logo</h1>
     <div class="header-links">
@@ -197,7 +198,6 @@
     </div>
 </header>
 
-<body>
     <main>
         <div class="hero">
             <div class="container">
@@ -243,8 +243,6 @@
             </div>
         </div>
     </main>
-</body>
-
 <footer class="footer">
     <div class="footer-content">
 
@@ -252,5 +250,4 @@
     </div>
 </footer>
 </body>
-
 </html>
