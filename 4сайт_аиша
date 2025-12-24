@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design and Development Process</title>
+    <style>
+       
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+      
+        .content {
+            flex: 1;
+           
+            padding: 4cm 0 120px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .textiks-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            max-width: 1400px;
+            width: 90%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .textik {
+            text-align: center;
+            padding: 0 15px;
+
+        }
+
+        .textik-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #ffc800;
+            margin-bottom: 15px;
+        }
+
+        .textik p {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+
+        footer {
+            background-color: #030303;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 45px 0;
+            margin: 0;
+            width: 100%;
+            display: block;
+        }
+
+        footer,
+        footer * {
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        footer p {
+            color: #bdc3c7;
+            margin: 0;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .learn-more-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #000000;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more-link:hover::before {
+            background-color: #da34ff;
+        }
+
+        .learn-more-link:hover {
+            color: #2c3e50;
+        }
+
+        .learn-more-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: relative;
+            padding-top: 12px;
+            margin-top: 10px;
+        }
+
+
+
+
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2cm 0 40px 0;
+            }
+
+            .textiks-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                max-width: 600px;
+                width: 90%;
+                padding: 0 10px;
+            }
+
+            .textik {
+                padding: 0 10px;
+            }
+
+            .textik-number {
+                font-size: 3rem;
+            }
+
+            .textik p {
+                font-size: 1.05rem;
+            }
+
+            footer {
+                padding: 30px 0;
+            }
+
+            footer p {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content {
+                padding: 1.5cm 0 30px 0;
+            }
+
+            .textiks-container {
+                gap: 30px;
+                width: 95%;
+            }
+
+            .textik {
+                padding: 0;
+            }
+
+            .textik-number {
+                font-size: 2.8rem;
+            }
+
+            .textik p {
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 30px 0;
+            }
+
+            footer p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+        }
+
+
+        @media (max-width: 900px) {
+            footer {
+                width: 100vw !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+
+            html,
+            body {
+                overflow-x: hidden;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+</html>
+
+
+<body>
+    <main>
+        <div class="content">
+            <div class="textiks-container">
+                <div class="textik">
+                    <div class="textik-number">1</div>
+                    <p>iPhone 15 Prо Ключевая характеристика: Титановый корпус. Титан аэрокосмического класса. Самый
+                        легкий корпус в линейке Pro. Повышенная прочность и износостойкость</p>
+                    <a href="#" class="learn-more-link">Learn more</a>
+                </div>
+
+                <div class="textik">
+                    <div class="textik-number">2</div>
+                    <p>Samsung Galaxy S24 Ultra Ключевая характеристика: Искусственный интеллект. Galaxy AI с мгновенным
+                        переводом. Интеллектуальная обработка фото. Голосовой помощник с контекстным пониманием</p>
+                    <a href="#" class="learn-more-link">Learn more</a>
+                </div>
+
+                <div class="textik">
+                    <div class="textik-number">3</div>
+                    <p>Google Pixel 8 Pro Ключевая характеристика: Фотографические возможности. Система камер с
+                        алгоритмами на основе ИИ. Ночное видение без вспышки. Магический редактор для ретуши</p>
+                    <a href="#" class="learn-more-link">Learn more</a>
+                </div>
+
+                <div class="textik">
+                    <div class="textik-number">4</div>
+                    <p>OnePlus 12 Ключевая характеристика: Скорость зарядки. Аккумулятор 5400 мАч. Проводная зарядка
+                        100W (полный заряд за 26 минут). Беспроводная зарядка 50W</p>
+                    <a href="#" class="learn-more-link">Learn more</a>
+                </div>
+
+                <div class="textik">
+                    <div class="textik-number">5</div>
+                    <p>Xiaomi 14 Ultra Ключевая характеристика: Камера Leica. Четыре камеры с сенсорами 50 МП. Суммарная
+                        апертура f/1.63-f/4.0. Профессиональный режим для фотографов</p>
+                    <a href="#" class="learn-more-link">Learn more</a>
+                </div>
+
+                <div class="textik">
+                    <div class="textik-number">6</div>
+                    <p>Sony Xperia 1 V Ключевая характеристика: Дисплей для мультимедиа. 4K HDR OLED 120 Гц. Соотношение
+                        сторон 21:9. Технология Creator Mode для точной цветопередачи</p>
+                    <a href="#" class="learn-more-link">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+<footer>
+    <p>Free HTML5 Template created with Website Builder.</p>
+</footer>
+</body>
+
+</html>
