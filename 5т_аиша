@@ -138,6 +138,7 @@
     </style>
 </head>
 <body>
+<main>
     <div class="sun"></div>
     <div class="cloud cloud1"></div>
     <div class="cloud cloud2"></div>
@@ -149,6 +150,6 @@
              alt="Велосипед" 
              class="bike-image">
     </div>
-
+</main>
 </body>
 </html>
