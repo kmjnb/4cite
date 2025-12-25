@@ -380,64 +380,89 @@
         }
 
 
-        .footer {
-            background-color: #242424;
-            color: rgb(230, 230, 230);
-            padding: 60px 0 30px;
-        }
+  /* Исправленный Footer */
+.footer {
+    background-color: black;
+    color: rgb(219, 219, 219);
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
 
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
+.footer .container {
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+}
 
-        .footer-column h3 {
-            margin-bottom: 25px;
-            font-size: 22px;
-            color: white;
-            position: relative;
-            padding-bottom: 10px;
-        }
+.footer-container {
+    margin: 0;
+    padding: 40px 15px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
 
-        .footer-column h3:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--pink-main);
-        }
+.copyright {
+    padding: 20px 15px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--pink-light);
+    font-size: 14px;
+    margin: 0;
+}
 
-        .footer-links {
-            list-style: none;
-        }
+/* Убираем отступы у body и html */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
 
-        .footer-links li {
-            margin-bottom: 12px;
-        }
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
 
-        .footer-links a {
-            color: var(--pink-light);
-            text-decoration: none;
-            transition: all 0.3s;
-            padding: 3px 0;
-            display: inline-block;
-        }
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 30px 15px;
+        gap: 20px;
+    }
+    
+    .copyright {
+        padding: 15px;
+    }
+     .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
 
-        .footer-links a:hover {
-            color: white;
-            transform: translateX(5px);
-        }
+            .nav-menu li {
+                margin: 5px 10px;
+            }
 
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
 
+            .slide-content {
+                padding: 30px;
+            }
+}
+
+@media (max-width: 480px) {
+    .footer-container {
+        padding: 20px 15px;
+        gap: 15px;
+    }
+    
+    .copyright {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+}
         .social-icons a {
             color: var(--pink-main);
             background-color: white;
@@ -459,46 +484,6 @@
         }
 
 
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .nav-menu {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .nav-menu li {
-                margin: 5px 10px;
-            }
-
-
-            .slide-content {
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .category-grid,
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .slide-content {
-                padding: 20px;
-            }
-
-            .slide h2 {
-                font-size: 26px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-        }
     </style>
 </head>
 
