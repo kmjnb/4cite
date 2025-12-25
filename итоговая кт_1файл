@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blush - Косметика</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }но
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #333;
+            background-color: #fff5f7;
+        }
+
+        :root {
+            --pink-light: #fff5f7;
+            --pink-medium: #ffb6c1;
+            --pink-dark: #c570d8;
+            --pink-text: #0f0f10;
+        }
+
+        header {
+            background: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(216, 112, 147, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--pink-dark);
+            text-decoration: none;
+        }
+
+        nav a {
+            color: var(--pink-text);
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: var(--pink-dark);
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: var(--pink-text);
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: var(--pink-text);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--pink-dark);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 10px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .btn:hover {
+            background: #c95d83;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--pink-dark);
+            border: 2px solid var(--pink-dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--pink-light);
+        }
+
+        .hero {
+            background: linear-gradient(to right, #ffeef2, #ffdfe6);
+            text-align: center;
+            padding-top: 140px;
+        }
+
+        .hero-image {
+            max-width: 300px;
+            margin: 30px auto;
+            background: var(--pink-medium);
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .about {
+    background: white;
+    text-align: center; /* Центрируем содержимое */
+}
+
+.about-content {
+    margin-bottom: 30px; /* Отступ снизу перед изображением */
+}
+
+.about-text {
+    max-width: 800px;
+    margin: 0 auto; /* Центрируем текст */
+    text-align: left; /* Текст выравниваем по левому краю */
+}
+
+/* Компактное изображение */
+.about-image-compact {
+    max-width: 400px; /* Ограничиваем ширину */
+    margin: 0 auto; /* Центрируем */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(216, 112, 147, 0.1);
+}
+
+.about-image-compact img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+        .products {
+            background: #fff9fa;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto;
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(216, 112, 147, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            height: 150px;
+            background: var(--pink-medium);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-name {
+            font-weight: bold;
+            color: var(--pink-text);
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: var(--pink-dark);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .products-footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+
+        .features {
+            background: white;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .feature-item {
+            background: #fff9fa;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--pink-medium);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            overflow: hidden;
+        }
+
+        .feature-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .contact {
+            background: #fff5f7;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(216, 112, 147, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--pink-text);
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ffb6c1;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+
+        footer {
+            background: var(--pink-text);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+
+        .footer-links a {
+            color: #ffb6c1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">AishaBLUSH</a>
+                <nav>
+                    <a href="#home">Главная</a>
+                    <a href="#about">О нас</a>
+                    <a href="#products">Продукты</a>
+                    <a href="#features">Преимущества</a>
+                    <a href="#contact">Контакты</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <h1> косметика для красоты</h1>
+                <p>Натуральные ингредиенты, бережное производство и забота о вашей коже.</p>
+                <div class="hero-image">
+                    <img src="orig (7).webp" alt="AishaBLUSH">
+                </div>
+                <a href="#products" class="btn">Смотреть продукты</a>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+    <div class="container">
+        <h2>О нашем бренде</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>AishaBlush - это косметика, созданная для современных женщин, ценящих натуральность и качество.</p>
+                <p>Мы используем только натуральные ингредиенты, не тестируем на животных и заботимся об экологии.</p>
+                <p>Наша миссия - подчеркнуть вашу естественную красоту.</p>
+    
+            </div>
+        </div>
+        <div class="about-image-compact">
+            <img src="c6e0ea66-802f-4d56-8502-77258027df33.jpg" alt="Натуральный состав">
+            <a href="#contact" class="btn">Связаться с нами</a>
+        </div>
+    </div>
+</section>
+        <section class="products" id="products">
+            <div class="container">
+                <h2>Наши продукты</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="orig.webp" alt="Крем для лица">
+                        </div>
+                        <div class="product-name">Крем для лица</div>
+                        <p>Для ежедневного ухода за кожей</p>
+                        <div class="product-price">1 890 ₽</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="acetone-20251225-5148-156.png" alt="Тени для век">
+                        </div>
+                        <div class="product-name">Тени для век</div>
+                        <p>Нейтральные оттенки для макияжа</p>
+                        <div class="product-price">2 450 ₽</div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="помада.jpg" alt="Блеск для губ">
+                        </div>
+                        <div class="product-name">Блеск для губ</div>
+                        <p>Увлажняющий с витамином Е</p>
+                        <div class="product-price">950 ₽</div>
+                    </div>
+                </div>
+
+                <div class="products-footer">
+                    <a href="products.html" class="btn">Посмотреть больше товаров</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2>Почему выбирают нас</h2>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <div class="feature-icon"></div>
+                        <h3>Эко-упаковка</h3>
+                        <p>Используем перерабатываемые материалы</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon"></div>
+                        <h3>Натуральный состав</h3>
+                        <p>Более 95% натуральных ингредиентов</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon"></div>
+                        <h3>Не тестируем на животных</h3>
+                        <p>Этичное производство</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon"></div>
+                        <h3>Гарантия качества</h3>
+                        <p>Строгий контроль на каждом этапе</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Свяжитесь с нами</h2>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label>Ваше имя</label>
+                            <input type="text" placeholder="Имя">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Сообщение</label>
+                            <input type="text" placeholder="Текст сообщения">
+                        </div>
+
+                        <button type="submit" class="btn">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Контакты</h3>
+                    <div class="footer-links">
+                        <a href="tel:+79991234567">+7 (928) 303-63-26</a>
+                        <a href="mailto:info@blush.ru">abuloovaaisha@icloud.com</a>
+                        <a href="#">Махачкала, пр. Гамидова, 18м</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Магазин</h3>
+                    <div class="footer-links">
+                        <a href="#products">Продукты</a>
+                        <a href="#about">О нас</a>
+                        <a href="#features">Преимущества</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>AishaBlush Cosmetics. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
