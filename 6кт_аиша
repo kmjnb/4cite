@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Shop - Интернет-магазин</title>
+    <style>
+        :root {
+            --pink-light: #ffe6f2;
+            --pink-soft: #ffcce6;
+            --pink-main: #ff99cc;
+            --pink-dark: #e6739f;
+            --lavender: #e6e6ff;
+            --mint: #e6fff2;
+            --text-dark: #4a4a4a;
+            --text-light: #888888;
+            --white: #ffffff;
+            --gray-light: #f8f8f8;
+        }
+
+        body {
+            background-color: #fff9fb;
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(255, 153, 204, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--pink-light);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--pink-main);
+            text-decoration: none;
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+        }
+
+        .logo span {
+            color: var(--pink-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--pink-main);
+            background-color: var(--pink-light);
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-icon {
+            position: relative;
+            margin-left: 20px;
+            color: var(--pink-main);
+            font-size: 22px;
+            text-decoration: none;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--pink-dark);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-slider {
+            padding: 50px 0;
+            background: linear-gradient(135deg, #fff9fb 0%, var(--lavender) 100%);
+        }
+
+        .slide {
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 153, 204, 0.15);
+            border: 1px solid var(--pink-soft);
+        }
+
+        .slide-content {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .slide h2 {
+            font-size: 32px;
+            color: var(--pink-dark);
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 28px;
+            color: var(--pink-main);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .btn-shop {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--pink-main) 0%, var(--pink-dark) 100%);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 153, 204, 0.3);
+        }
+
+        .btn-shop:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 153, 204, 0.4);
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--pink-light);
+        }
+
+        .slide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .slide-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-placeholder {
+            color: var(--pink-dark);
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .category-banner {
+            padding: 60px 0;
+            background-color: #fff9fb;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--pink-dark);
+            font-size: 32px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink-main), var(--lavender));
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(255, 153, 204, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid var(--pink-light);
+        }
+
+        .category-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 153, 204, 0.2);
+        }
+
+        .category-img {
+            height: 220px;
+            overflow: hidden;
+            background-color: var(--pink-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .category-item:hover .category-img img {
+            transform: scale(1.1);
+        }
+
+        .category-info {
+            padding: 20px;
+        }
+
+        .category-info h4 {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .category-price {
+            color: var(--pink-main);
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--pink-main) 0%, var(--pink-dark) 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(255, 153, 204, 0.3);
+            z-index: 2;
+        }
+
+        .products-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #fff9fb 0%, var(--mint) 100%);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(255, 153, 204, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid var(--pink-light);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 153, 204, 0.2);
+        }
+
+        .product-img {
+            height: 220px;
+            overflow: hidden;
+            background-color: var(--lavender);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .product-price {
+            color: var(--pink-main);
+            font-weight: bold;
+            font-size: 22px;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-cart,
+        .btn-wishlist {
+            background-color: #f8f8f8;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: var(--pink-dark);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn-cart:hover,
+        .btn-wishlist:hover {
+            background-color: #f8f8f8;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        .footer {
+            background-color: #242424;
+            color: rgb(230, 230, 230);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 25px;
+            font-size: 22px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--pink-main);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--pink-light);
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 3px 0;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: var(--pink-main);
+            background-color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--pink-main);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-menu li {
+                margin: 5px 10px;
+            }
+
+
+            .slide-content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .category-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .slide-content {
+                padding: 20px;
+            }
+
+            .slide h2 {
+                font-size: 26px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">Aishk<span>Shop</span></a>
+
+            <ul class="nav-menu">
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Товары</a></li>
+                <li><a href="#">Категории</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+
+            <div class="header-icons">
+                <a href="#" class="cart-icon">
+                    🛒
+                    <span class="cart-count">2</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-slider">
+        <div class="container">
+            <div class="slide">
+                <div class="row" style="display: flex; flex-wrap: wrap;">
+                    <div class="col-6" style="flex: 0 0 50%; max-width: 50%;">
+                        <div class="slide-content">
+                            <h2>Палетка теней</h2>
+                            <div class="price">4670руб.</div>
+                            <a href="#" class="btn-shop">Купить сейчас</a>
+                        </div>
+                    </div>
+                    <div class="col-6" style="flex: 0 0 50%; max-width: 50%;">
+                        <div class="slide-image">
+                            <img src="acetone-20251225-5148-156.png" alt="Палетка теней">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-banner">
+        <div class="container">
+            <h2 class="section-title">Популярные категории</h2>
+
+            <div class="category-grid">
+                <div class="category-item">
+                    <div class="category-img">
+                        <img src="помада.jpg" alt="помада">
+                    </div>
+                    <div class="category-info">
+                        <h4>Помада</h4>
+                        <div class="category-price">150руб.</div>
+                    </div>
+                </div>
+
+                <div class="category-item">
+                    <div class="sale-badge">-50%</div>
+                    <div class="category-img">
+                        <img src="7021487684.jpg" alt="спрей">
+                    </div>
+                    <div class="category-info">
+                        <h4>спрей для волос</h4>
+                        <div class="category-price">1400руб.</div>
+                    </div>
+                </div>
+
+                <div class="category-item">
+                    <div class="category-img">
+                        <img src="orig.webp" alt="Для женщин">
+                    </div>
+                    <div class="category-info">
+                        <h4>Крем для тела</h4>
+                        <div class="category-price">800руб.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Популярные товары</h2>
+
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="orig (1).webp" alt="Прикроватная лампа">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Прикроватная лампа</h3>
+                        <div class="product-price">1200руб.</div>
+                        <div class="product-actions">
+                            <button class="btn-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="i.webp" alt="светодиодная лента">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">светодиодная лента</h3>
+                        <div class="product-price">340руб.</div>
+                        <div class="product-actions">
+                            <button class="btn-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="кресло стул.jpg" alt="Стул Berlin">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Стул кресло</h3>
+                        <div class="product-price">13000руб.</div>
+                        <div class="product-actions">
+                            <button class="btn-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="стол.jpg" alt="Читальный стол">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Читальный стол</h3>
+                        <div class="product-price">11000руб.</div>
+                        <div class="product-actions">
+                            <button class="btn-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+
+                        <img src="чехол.jpg" alt="Чехол для телефона">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Чехол для телефона</h3>
+                        <div class="product-price">450руб.</div>
+                        <div class="product-actions">
+                            <button class="btn-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="свеча.webp" alt="Декор для гостиной">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">свеча</h3>
+                        <div class="product-price">350руб.</div>
+                        <div class="product-actions">
+                            <button class="btn-cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn-shop">Посмотреть все товары</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>AishkShop</h3>
+                    <p>Лучший интернет-магазин товаров в розовых тонах. Мы предлагаем качественные товары по доступным
+                        ценам.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Полезные ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#">Товары</a></li>
+                        <li><a href="#">Категории</a></li>
+                        <li><a href="#">О нас</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <p>Email: abuloovaaisha@icloud.com</p>
+                    <p>Телефон: +7 (928) 303-45-67</p>
+                    <p>Адрес: г. Махачкала, пр. Гамидова, 18М</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
