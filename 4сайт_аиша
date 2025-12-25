@@ -221,10 +221,6 @@
         }
     </style>
 </head>
-
-</html>
-
-
 <body>
     <main>
         <div class="content">
@@ -273,11 +269,8 @@
             </div>
         </div>
     </main>
-</body>
-
 <footer>
     <p>Free HTML5 Template created with Website Builder.</p>
 </footer>
 </body>
-
 </html>
