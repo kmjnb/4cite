@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: aliceblue;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .zagolovok {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            flex: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #000000;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .yacheuka {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(30px);
+            animation: cardEntrance 0.8s ease-out forwards;
+        }
+
+        .yacheuka:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .yacheuka:nth-child(1) {
+            animation-delay: 0.4s;
+        }
+
+        .yacheuka:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .yacheuka:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .yacheuka:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .yacheuka:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        .yacheuka:nth-child(6) {
+            animation-delay: 0.4s;
+        }
+
+        .yacheuka::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transform-origin: left;
+
+        }
+
+
+        .yacheuka h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .yacheuka p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid #2b2727;
+            color: #bab6b6;
+            animation: fadeIn 1s ease-out 1s both;
+            background-color: #333;
+            width: 100%;
+            margin-top: 0;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+
+        @keyframes cardEntrance {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .zagolovok {
+                padding: 20px;
+            }
+
+            .yacheuka {
+                padding: 30px 20px;
+            }
+
+
+            .grid {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 367px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .yacheuka {
+                padding: 25px 15px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="zagolovok">
+        <header>
+            <h1>Характеристика косметики</h1>
+
+        </header>
+
+        <main>
+            <div class="grid">
+                <div class="yacheuka">
+                    <div class="card-icon">💄</div>
+                    <h3>Губная помада</h3>
+                    <p>Губная помада — косметический продукт для яркой окраски, защиты и/или увлажнения губ. Выпускается
+                        в разных видах: в форме кремообразной субстанции, карандаша, жидкого или гелевого средства с
+                        аппликатором</p>
+                </div>
+
+                <div class="yacheuka">
+                    <div class="card-icon">🕷️</div>
+                    <h3>Тушь для глаз</h3>
+                    <p>Тушь для глаз (тушь для ресниц) — косметическое средство, которое придаёт ресницам объём и длину,
+                        а также усиливает общий эффект макияжа. Основная задача — сделать глаза более выразительными.
+                    </p>
+                </div>
+
+                <div class="yacheuka">
+                    <div class="card-icon">🎨</div>
+                    <h3>Тени для глаз</h3>
+                    <p>Тени для глаз различаются по текстуре, способу нанесения и эффекту. Выделяют сухие, жидкие и
+                        кремовые тени</p>
+                </div>
+
+                <div class="yacheuka">
+                    <div class="card-icon">🧸</div>
+                    <h3>тональный крем</h3>
+                    <p>Тональный крем — косметическое средство для макияжа, предназначенное для выравнивания тона кожи,
+                        коррекции недостатков, создания ровной поверхности для нанесения макияжа. </p>
+                </div>
+
+                <div class="yacheuka">
+                    <div class="card-icon">👩</div>
+                    <h3>пудра</h3>
+                    <p>Пудра для лица — косметическое средство, которое завершает макияж, выравнивает тон кожи и
+                        выполняет другие функции.</p>
+                </div>
+
+                <div class="yacheuka">
+                    <div class="card-icon">✨</div>
+                    <h3>хайлайтер</h3>
+                    <p>Хайлайтер для лица — это косметическое средство, которое создаёт эффект подсвеченной изнутри
+                        кожи. В составе — светоотражающие частички мелкой или крупной фракции, которые отражают
+                        попадающий на лицо свет.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <footer>
+        <p>Website Templates created with Website Builder Software.</p>
+    </footer>
+</body>
+
+</html>
