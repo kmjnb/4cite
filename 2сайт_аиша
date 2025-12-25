@@ -31,7 +31,6 @@
             display: grid;
             gap: 20px;
             margin: 40px 0;
-            /* По умолчанию для мобильных - 1 колонка */
             grid-template-columns: 1fr;
         }
 
@@ -75,6 +74,7 @@
             padding: 0;
             margin: 0;
             width: 100%;
+            text-align: center;
         }
 
         .footer-content {
@@ -86,7 +86,6 @@
         .footer-columns {
             display: grid;
             gap: 30px;
-            /* По умолчанию для мобильных - 1 колонка */
             grid-template-columns: 1fr;
         }
 
@@ -95,33 +94,10 @@
             color: #fff;
         }
 
-        .footer-links {
-            list-style: none;
-        }
+        
+    
 
-        .footer-links li {
-            margin-bottom: 8px;
-        }
 
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .copyright {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.9em;
-        }
-
-        /* Для планшетов (от 368px до 768px) - 2 колонки */
         @media (min-width: 368px) and (max-width: 768px) {
             .grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -132,7 +108,7 @@
             }
         }
 
-        /* Для десктопов (769px и больше) - 3 колонки */
+       
         @media (min-width: 769px) {
             .grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -143,7 +119,7 @@
             }
         }
 
-        /* Для очень маленьких экранов (до 367px) - адаптация отступов */
+   
         @media (max-width: 367px) {
             .grid-item {
                 padding: 20px;
@@ -209,7 +185,7 @@
             <h4>Sample text. Click to select the text box. Click again or double click to start editing the text.</h4>
             
             <div class="copyright">
-                <p>&copy; Website Design created with Static Website Generator.</p>
+                <p>Website Design created with Static Website Generator.</p>
             </div>
         </div>
     </footer>
